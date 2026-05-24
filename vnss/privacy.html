@@ -97,16 +97,6 @@
     }
     .highlight p { margin-bottom: 0; }
 
-    .placeholder {
-      background: #1a1a00;
-      border: 1px dashed var(--yellow)66;
-      color: var(--yellow);
-      padding: 4px 8px;
-      font-size: 12px;
-      border-radius: 2px;
-      font-family: monospace;
-    }
-
     /* ── footer ─────────────────────────────────────── */
     footer {
       text-align: center;
@@ -165,21 +155,18 @@
       store this data on our own servers beyond the duration of an active session.
     </p>
 
-    <p><strong>Analytics and crash data</strong></p>
+    <p><strong>Crash data</strong></p>
     <p>
-      The game may collect anonymous or pseudonymous telemetry data to help us understand
-      how it performs and how players interact with it. This may include:
+      The game uses Unreal Engine's built-in crash reporter, which may transmit the following
+      to Epic Games when a crash occurs:
     </p>
     <ul>
-      <li>Crash reports and error logs (including device specs and OS version at time of crash)</li>
-      <li>Gameplay events (e.g. levels reached, features used, session length)</li>
-      <li>Performance metrics (frame rate, load times)</li>
+      <li>Crash reports and call stacks</li>
+      <li>Device specs and OS version at the time of the crash</li>
     </ul>
     <p>
-      This data is collected by a third-party analytics provider.
-      <span class="placeholder">[PROVIDER NAME — update before launch]</span>
-      It is not linked to your real identity. You can opt out of analytics data collection
-      in the game's settings menu.
+      This data is handled by Epic Games under their privacy policy (see Section 4).
+      It is not linked to your real identity.
     </p>
 
     <h2>3. DATA WE DO NOT COLLECT</h2>
@@ -203,14 +190,11 @@
       </li>
       <li>
         <strong>Epic Online Services (EOS)</strong> — multiplayer authentication for Epic Games
-        Store and itch.io purchases. See <a href="https://www.epicgames.com/site/en-US/privacypolicy" target="_blank" rel="noopener">Epic's Privacy Policy</a>.
+        Store and itch.io purchases, and crash reporting via Unreal Engine's built-in crash
+        reporter. See <a href="https://www.epicgames.com/site/en-US/privacypolicy" target="_blank" rel="noopener">Epic's Privacy Policy</a>.
       </li>
       <li>
         <strong>itch.io</strong> — storefront for PC purchases. See <a href="https://itch.io/docs/legal/privacy-policy" target="_blank" rel="noopener">itch.io's Privacy Policy</a>.
-      </li>
-      <li>
-        <strong><span class="placeholder">[Analytics provider]</span></strong> — crash reporting
-        and gameplay analytics. <span class="placeholder">[Link to their privacy policy]</span>
       </li>
     </ul>
     <p>
@@ -223,7 +207,6 @@
     <ul>
       <li>Enable multiplayer functionality (authentication, session management, display names)</li>
       <li>Identify and fix bugs and crashes</li>
-      <li>Understand how the game is played so we can improve it</li>
     </ul>
     <p>
       We do not sell your data, use it for advertising, or share it with any party
@@ -234,8 +217,8 @@
     <p>
       Session-related platform data (your user ID and display name during multiplayer)
       is not stored by us after your session ends.
-      Analytics and crash data is retained by our analytics provider according to their
-      own retention policies, typically between 90 days and 2 years.
+      Crash data transmitted to Epic Games is retained according to
+      <a href="https://www.epicgames.com/site/en-US/privacypolicy" target="_blank" rel="noopener">Epic's Privacy Policy</a>.
     </p>
 
     <h2>7. YOUR RIGHTS</h2>
@@ -251,7 +234,7 @@
       <li>Withdraw consent where processing is based on consent</li>
     </ul>
     <p>
-      Because most data is handled by Steam, Epic, or our analytics provider,
+      Because most data is handled by Steam or Epic Games,
       requests related to that data should be directed to those services.
       For anything handled directly by BunnE Games, contact us at
       <a href="mailto:bunnrbbt@gmail.com">bunnrbbt@gmail.com</a>.
@@ -259,8 +242,7 @@
 
     <h2>8. CHANGES TO THIS POLICY</h2>
     <p>
-      We may update this policy as the game develops — particularly once we confirm
-      our analytics provider. When we make material changes, we will update the
+      We may update this policy as the game develops. When we make material changes, we will update the
       "Last updated" date at the top of this page. Continued use of the game after
       changes constitutes acceptance of the updated policy.
     </p>

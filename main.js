@@ -1,3 +1,14 @@
+const inboxCard = document.getElementById('inbox-card');
+const toast = document.getElementById('copy-toast');
+let toastTimer;
+inboxCard.addEventListener('click', () => {
+  navigator.clipboard.writeText('bunnrbbt@gmail.com').then(() => {
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  });
+});
+
 const container = document.getElementById('stars');
 for (let i = 0; i < 120; i++) {
   const s = document.createElement('div');

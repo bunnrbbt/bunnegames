@@ -15,7 +15,7 @@ We only care about brotli: every modern browser negotiates it over HTTPS, and
 all major static hosts serve it. The gzip fallback is knowingly ~2 packets and
 is not checked here (still one round trip either way).
 
-Usage:  python3 verify_one_packet.py
+Usage:  python3 verify_one_packet.py [path]   (default: minimal.html)
 Exit:   0 = PASS, 1 = FAIL.
 """
 import os
@@ -26,7 +26,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-HTML = Path(__file__).with_name("index.html")
+DEFAULT_PAGE = Path(__file__).with_name("minimal.html")  # the strict 1-packet build
 MSS = 1460           # TCP payload on a 1500-byte-MTU link (1500 - 20 IP - 20 TCP)
 HPACK_HEADERS = 130  # conservative HPACK-compressed response header block (header-heavy host)
 
@@ -99,11 +99,11 @@ def tls_wire_size(app: bytes) -> int:
     return len(so.read())
 
 
-def main() -> int:
-    raw = HTML.read_bytes()
+def main(page: Path) -> int:
+    raw = page.read_bytes()
     html = raw.decode("utf-8", "replace")
     br = brotli_compress(raw)
-    print(f"homepage: {HTML.name}  ({len(raw)} B raw, {len(br)} B brotli)\n")
+    print(f"page: {page.name}  ({len(raw)} B raw, {len(br)} B brotli)\n")
 
     ok = True
 
@@ -140,4 +140,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PAGE))

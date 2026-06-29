@@ -81,19 +81,19 @@ footer a{color:var(--c);text-decoration:none}
   </div>
 </main>
 
-<footer><p>© 2026 <b>BunnE Games</b> · <a href=about.html>about me</a> · made with 🥕 and too much ☕</p></footer>
+<footer><p>© 2026 <b>BunnE Games</b> · <a href=about.html>about me</a> · made with 🥕 and too much ☕</p><p style=margin-top:6px;font-size:9px;color:#556>This whole page reached you in a single network round-trip because I care about your time 💘 </p></footer>
 <div id=toast>📋 email copied!</div>
 
 <script>
 const cv=document.getElementById('sky'),ctx=cv.getContext('2d'),neb=document.querySelector('.neb');
-let W,H,stars,mx=0,my=0;
+let W,H,stars;
 function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;
   const n=Math.min(200,(W*H/9000)|0);
   stars=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random(),p:Math.random()*6.28}));}
 addEventListener('resize',resize);resize();
-addEventListener('mousemove',e=>{mx=e.clientX/W-.5;my=e.clientY/H-.5;
-  neb.style.transform='translate('+(mx*-18)+'px,'+(my*-18)+'px)';});
 let t=0;(function loop(){t+=.016;ctx.clearRect(0,0,W,H);
+  const mx=Math.sin(t*.05),my=Math.cos(t*.04);
+  neb.style.transform='translate('+(mx*-18)+'px,'+(my*-18)+'px)';
   for(const s of stars){const tw=.35+.65*Math.abs(Math.sin(s.p+t*(.4+s.z)));
     const px=s.x+mx*42*s.z,py=s.y+my*42*s.z,r=s.z*1.6+.3;
     ctx.globalAlpha=tw;ctx.fillStyle=s.z>.86?'#5fffd7':(s.z>.7?'#ff9ed6':'#fff');
